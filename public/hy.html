@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="testdiv"></div>
+<script src="javascripts/jquery-1.11.3.js"></script>
+<script src="http://shangjing.huya.com/pkg/taf_51216ff.js"></script>
+<script>
+    //    var testdiv = document.getElementById("testdiv");
+    G = {topsid: "92094861", subsid: "2335797845", yyuid: "294636272", ISDEBUG: false};
+    //    G={topsid: "21908807", subsid: "2337243982", yyuid: "7017534", ISDEBUG: false};
+    function broadcast() {
+        function n() {
+            var o = new HUYA.LiveLaunchReq;
+            o.tId = a,
+                    o.tLiveUB.eSource = HUYA.ELiveSource.WEB_HUYA,
+                    i.sendWup("liveui", "doLaunch", o)
+        }
+
+        function t() {
+            var o = new HUYA.WSUserInfo;
+            o.lUid = G.yyuid,
+                    o.bAnonymous = 0 == G.yyuid,
+                    o.sGuid = a.sGuid,
+                    o.sToken = "",
+                    o.lTid = G.topsid,
+                    o.lSid = G.subsid,
+                    o.lGroupId = 0,
+                    o.lGroupType = 0,
+                    i.sendRegister(o)
+        }
+
+        function e() {
+            var o = new HUYA.UserChannelReq;
+            o.tId = a,
+                    o.lTopcid = G.topsid,
+                    o.lSubcid = G.subsid,
+                    o.sSendContent = "",
+                    console.log("\u8ba2\u9605\u9891\u9053\uff1a", G.topsid, G.subsid),
+                    i.sendWup("liveui", "userIn", o)
+        }
+
+        function s() {
+            var o = new HUYA.GetPropsListReq;
+            o.tUserId = a,
+                    o.sMd5 = "",
+                    o.iTemplateType = HUYA.EClientTemplateType.TPL_PC,
+                    o.sVersion = "",
+                    console.log("send_init"),
+                    i.sendWup("PropsUIServer", "getPropsList", o)
+        }
+
+//        G = o;
+        var i = new TafHandler
+                , a = new HUYA.UserId
+                , c = this;
+        i.addListener("WEBSOCKET_CONNECTED", function () {
+            a.lUid = G.yyuid,
+                    a.sGuid = "",
+                    a.sToken = "",
+                    a.sHuYaUA = "webh5&1.0.0&websocket",
+                    a.sCookie = document.cookie,
+                    n(),
+                    s()
+        });
+        i.addListener("doLaunch", function (o) {
+            a.sGuid = o.sGuid,
+                    t(),
+                    e()
+        });
+        i.addListener("WSRegisterRsp", function () {
+        });
+        i.addListener("userIn", function (o) {
+            console.log("<<< \u6210\u529f\u8fdb\u5165\u9891\u9053 ", o)
+        });
+        i.addListener("1003", function (o) {
+            /**
+             * {"tUserId":{"lUid":928671229,"sGuid":"","sToken":"","sHuYaUA":"","sCookie":""},"lTid":77259038,"lSid":2535706816,"lPid":0,"sMsg":"66666666","tSender":{"lSenderUid":928671229,"lYYid":892739619,"iSenderRole":0,"iSenderGender":1,"sSenderNick":"丶凹凸曼*"},"tNoble":{"iNobleLevel":0,"lDeadLine":0},"tFans":{"iFansLevel":0,"sFansNick":"","sFansPresenterNick":""},"tVipSimle":{"sVipSmileKey":"","sVipSmilePath":""},"tStamp":{"sSealIconPath":"","sKeyImg":"","lStampTime":0,"lStampEndTime":0,"iValidity":0,"sStampUserNick":""},"tMass":{"iGoldHostLevel":-1,"iSuperPupleLevel":0,"iVipLevel":0,"iUserLevel":0,"iIsVipRed":0,"iAtSomebody":0,"sAtSomebodyNick":"","ibarrageColor":0,"sDevSourceType":"adr"},"mReserver":{"kproto":{},"vproto":{},"value":{}},"iChatCache":0,"iRoomAuditLevel":4}
+             * @type {{type: number, nick: *, msg: *}}
+             */
+            var n = {
+                type: 0,
+                nick: o.tSender.sSenderNick,
+                msg: o.sMsg
+            };
+            var lSenderUid = o.tSender.lSenderUid;
+            var lYYid = o.tSender.lYYid;
+            var lUid = o.tUserId.lUid;
+            var lTid = o.lTid;
+            var lSid = o.lSid;
+
+
+            var tr = "<tr><td>" +
+                    "</td><td>0</td><td>" + o.tSender.sSenderNick +
+                    "</td><td>" + o.sMsg +
+                    "</td><td>" + lSenderUid +
+                    "</td><td>" + lYYid +
+                    "</td><td>" + lTid +
+                    "</td><td>" + lUid +
+                    "</td><td>" + lSid +
+                    "</td>></tr>";
+            $("#table1").append(tr);
+            window.scrollTo(0, document.body.scrollHeight);
+            Enqueue(o);
+        });
+        i.addListener("6501", function (o) {
+            console.log("6501", o);
+            var n = o.iItemType.toString();
+
+            Enqueue(o);
+        });
+        i.addListener("6502", function (o) {
+            console.log("6502", o)
+        });
+    }
+    var data = [];
+    function Enqueue(o) {
+        data.push(o);
+        if (data.length > 10) {
+            var up = {
+                "roomid": G.subsid, data: data
+            };
+//            console.log(JSON.stringify(up));
+            data = [];
+
+        }
+    }
+    function Upload(data) {
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "http://120.27.94.166:2999/dmhuya",
+            "method": "POST",
+            "headers": {
+                "content-type": "application/json",
+                "cache-control": "no-cache",
+                "postman-token": "34cad82e-418c-846c-7bae-b0976a1db768"
+            },
+            "data": data
+        };
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
+    }
+</script>
+<script>
+    broadcast();
+</script>
+<table id="table1"></table>
+<!--<input id="wahhh">-->
+<!--<div>-->
+
+<!--</div>-->
+
+</body>
+</html>
