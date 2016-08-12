@@ -104,10 +104,11 @@
 //                    "</td>></tr>";
 //            $("#table1").append(tr);
 //            window.scrollTo(0, document.body.scrollHeight);
-            var json={uid:o.tUserId.lUid,
-                nickname:o.tSender.sSenderNick,
-                msg:o.sMsg,
-                type:1
+            var json = {
+                uid: o.tUserId.lUid,
+                nickname: o.tSender.sSenderNick,
+                msg: o.sMsg,
+                type: 1
             };
 //            json.uid=o.tUserId.lUid;
 //            json.nickname=o.tSender.sSenderNick;
@@ -118,12 +119,10 @@
         i.addListener("6501", function (o) {
             console.log("6501", o);
 //            var n = o.iItemType.toString();
-            var json={uid:o.lSenderUid,
-                username:o.sSenderNick,json.uid=o.tUserId.lUid;
-            json.nickname=o.tSender.sSenderNick;
-            json.msg=o.sMsg;
-            json.type=1;
-                type:2
+            var json = {
+                uid: o.lSenderUid,
+                nickname: o.sSenderNick,
+                type: 2
             };
 //            json.uid=o.lSenderUid;
 //            json.username=o.sSenderNick;

@@ -4,8 +4,6 @@
     <list default="true" id="7a54d10f-ac6c-48e0-a922-7c87f2ae90b2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/hy.html" afterPath="$PROJECT_DIR$/public/hy.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/hy.jade" afterPath="$PROJECT_DIR$/views/hy.jade" />
     </list>
     <ignored path="HY…….iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +29,8 @@
       <file leaf-file-name="hy.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/hy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="97" column="44" selection-start-line="97" selection-start-column="44" selection-end-line="97" selection-end-column="44" />
+            <state relative-caret-position="470">
+              <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -626,7 +624,7 @@
       <updated>1470898656646</updated>
       <workItem from="1470898661180" duration="10228000" />
       <workItem from="1470966161625" duration="3022000" />
-      <workItem from="1470973581774" duration="6452000" />
+      <workItem from="1470973581774" duration="6615000" />
     </task>
     <task id="LOCAL-00001" summary="asdasd">
       <created>1470909576061</created>
@@ -649,11 +647,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470973731268</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="完善，避免跨域问题">
+      <created>1470982709417</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1470982709417</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19702000" />
+    <option name="totallyTimeSpent" value="19865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -700,7 +705,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="asdasd" />
-    <option name="LAST_COMMIT_MESSAGE" value="asdasd" />
+    <MESSAGE value="完善，避免跨域问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="完善，避免跨域问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -805,8 +811,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/hy.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="97" column="44" selection-start-line="97" selection-start-column="44" selection-end-line="97" selection-end-column="44" />
+        <state relative-caret-position="470">
+          <caret line="123" column="40" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
           <folding />
         </state>
       </provider>
