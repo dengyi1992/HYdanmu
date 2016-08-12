@@ -10,7 +10,7 @@
 <script src="http://shangjing.huya.com/pkg/taf_51216ff.js"></script>
 <script>
     //    var testdiv = document.getElementById("testdiv");
-    G = {topsid: "77690206", subsid: "2520331682", yyuid: "558802298", ISDEBUG: false};
+    G = {topsid: "77690206", subsid: "2520331682", yyuid: "558802298", ISDEBUG: false,roomid:"asdsad"};
     //    G={topsid: "21908807", subsid: "2337243982", yyuid: "7017534", ISDEBUG: false};
     function broadcast() {
         function n() {
@@ -138,7 +138,7 @@
         data.push(o);
         if (data.length > 10) {
             var up = {
-                "roomid": G.subsid, data: data
+                "roomid": G.roomid, data: data
             };
             Upload(up);
 //            console.log(JSON.stringify(up));

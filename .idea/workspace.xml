@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7a54d10f-ac6c-48e0-a922-7c87f2ae90b2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/hy.jade" afterPath="$PROJECT_DIR$/views/hy.jade" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/hy.html" afterPath="$PROJECT_DIR$/public/hy.html" />
     </list>
     <ignored path="HY…….iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,17 +26,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="hy.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="hy.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/hy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="87" />
+            <state relative-caret-position="540">
+              <caret line="132" column="34" selection-start-line="132" selection-start-column="34" selection-end-line="132" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hy.jade" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hy.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/hy.jade">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="224">
@@ -78,9 +77,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$USER_HOME$/文档/hello.js" />
-        <option value="$PROJECT_DIR$/public/hy.html" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/views/hy.jade" />
+        <option value="$PROJECT_DIR$/public/hy.html" />
       </list>
     </option>
   </component>
@@ -625,7 +624,7 @@
       <updated>1470898656646</updated>
       <workItem from="1470898661180" duration="10228000" />
       <workItem from="1470966161625" duration="3022000" />
-      <workItem from="1470973581774" duration="8059000" />
+      <workItem from="1470973581774" duration="8087000" />
     </task>
     <task id="LOCAL-00001" summary="asdasd">
       <created>1470909576061</created>
@@ -669,11 +668,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470982921242</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="jade">
+      <created>1470989195134</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1470989195134</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21309000" />
+    <option name="totallyTimeSpent" value="21337000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -809,14 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/hy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -829,6 +827,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="134" column="29" selection-start-line="134" selection-start-column="29" selection-end-line="134" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/hy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="132" column="34" selection-start-line="132" selection-start-column="34" selection-end-line="132" selection-end-column="34" />
           <folding />
         </state>
       </provider>
