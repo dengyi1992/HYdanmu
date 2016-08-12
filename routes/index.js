@@ -1,4 +1,5 @@
 var express = require('express');
+var request = require("request");
 var router = express.Router();
 
 /* GET home page. */
@@ -14,6 +15,20 @@ router.get('/hy', function(req, res, next) {
 });
 router.post("/huyadm",function (req, res, next) {
   console.log(JSON.stringify(req.body));
+  var options = { method: 'POST',
+    url: 'http://192.168.199.233:2999/dmHuya',
+    headers:
+    {
+      'cache-control': 'no-cache',
+      'content-type': 'application/json' },
+    body: req.body,
+    json: true };
+
+  request(options, function (error, response, body) {
+    if (error) return console.log(error.message);
+
+    console.log(body);
+  });
   res.json({msg:"success"});
 });
 module.exports = router;
