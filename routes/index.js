@@ -11,5 +11,8 @@ router.get('/hy', function(req, res, next) {
   var yyuid = req.query.yyuid;
   res.render('hy', {topsid: topsid, subsid: subsid, yyuid: yyuid, ISDEBUG: false});
 });
-
+router.post("/huyadm",function (req, res, next) {
+  console.log(JSON.stringify(req.body));
+  res.json({msg:"success"});
+});
 module.exports = router;

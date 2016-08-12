@@ -11,7 +11,9 @@ html(lang='en')
     script(src='javascripts/jquery-1.11.3.js')
     script(src='http://shangjing.huya.com/pkg/taf_51216ff.js')
     script.
-      G={topsid: #{topsid}, subsid: #{subsid}, yyuid: #{yyuid}, ISDEBUG: false};
+      //    var testdiv = document.getElementById("testdiv");
+      G = {topsid: #{topsid}, subsid: #{subsid}, yyuid: #{yyuid}, ISDEBUG: false};
+      //    G={topsid: "21908807", subsid: "2337243982", yyuid: "7017534", ISDEBUG: false};
       function broadcast() {
       function n() {
       var o = new HUYA.LiveLaunchReq;
@@ -98,12 +100,21 @@ html(lang='en')
       "</td>></tr>";
       $("#table1").append(tr);
       window.scrollTo(0, document.body.scrollHeight);
-      Enqueue(o);
+      var json={};
+      json.uid=lUid;
+      json.nickname=o.tSender.sSenderNick;
+      json.msg=o.sMsg;
+      json.type=1;
+      Enqueue(json);
       });
       i.addListener("6501", function (o) {
       console.log("6501", o);
       var n = o.iItemType.toString();
-      Enqueue(o);
+      var json={};
+      json.uid=o.lSenderUid;
+      json.username=o.sSenderNick;
+      json.type=2;
+      Enqueue(json);
       });
       i.addListener("6502", function (o) {
       console.log("6502", o)
@@ -116,6 +127,7 @@ html(lang='en')
       var up = {
       "roomid": G.subsid, data: data
       };
+      Upload(up);
       //            console.log(JSON.stringify(up));
       data = [];
       }
@@ -124,15 +136,15 @@ html(lang='en')
       var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://120.27.94.166:2999/dmhuya",
+      "url": "http://localhost:3000/huyadm",
       "method": "POST",
       "headers": {
       "content-type": "application/json",
-      "cache-control": "no-cache",
-      "postman-token": "34cad82e-418c-846c-7bae-b0976a1db768"
+      "cache-control": "no-cache"
       },
-      "data": data
-      };
+      "processData": false,
+      "data": JSON.stringify(data)
+      }
       $.ajax(settings).done(function (response) {
       console.log(response);
       });
