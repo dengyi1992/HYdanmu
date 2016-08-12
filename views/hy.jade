@@ -75,45 +75,54 @@ html(lang='en')
       console.log("<<< \\u6210\u529f\u8fdb\u5165\u9891\u9053 ", o)
       });
       i.addListener("1003", function (o) {
-      /**
-      * {"tUserId":{"lUid":928671229,"sGuid":"","sToken":"","sHuYaUA":"","sCookie":""},"lTid":77259038,"lSid":2535706816,"lPid":0,"sMsg":"66666666","tSender":{"lSenderUid":928671229,"lYYid":892739619,"iSenderRole":0,"iSenderGender":1,"sSenderNick":"丶凹凸曼*"},"tNoble":{"iNobleLevel":0,"lDeadLine":0},"tFans":{"iFansLevel":0,"sFansNick":"","sFansPresenterNick":""},"tVipSimle":{"sVipSmileKey":"","sVipSmilePath":""},"tStamp":{"sSealIconPath":"","sKeyImg":"","lStampTime":0,"lStampEndTime":0,"iValidity":0,"sStampUserNick":""},"tMass":{"iGoldHostLevel":-1,"iSuperPupleLevel":0,"iVipLevel":0,"iUserLevel":0,"iIsVipRed":0,"iAtSomebody":0,"sAtSomebodyNick":"","ibarrageColor":0,"sDevSourceType":"adr"},"mReserver":{"kproto":{},"vproto":{},"value":{}},"iChatCache":0,"iRoomAuditLevel":4}
-      * @type {{type: number, nick: *, msg: *}}
-      */
-      var n = {
-      type: 0,
-      nick: o.tSender.sSenderNick,
-      msg: o.sMsg
+      //            /**
+      //             * {"tUserId":{"lUid":928671229,"sGuid":"","sToken":"","sHuYaUA":"","sCookie":""},"lTid":77259038,"lSid":2535706816,"lPid":0,"sMsg":"66666666","tSender":{"lSenderUid":928671229,"lYYid":892739619,"iSenderRole":0,"iSenderGender":1,"sSenderNick":"丶凹凸曼*"},"tNoble":{"iNobleLevel":0,"lDeadLine":0},"tFans":{"iFansLevel":0,"sFansNick":"","sFansPresenterNick":""},"tVipSimle":{"sVipSmileKey":"","sVipSmilePath":""},"tStamp":{"sSealIconPath":"","sKeyImg":"","lStampTime":0,"lStampEndTime":0,"iValidity":0,"sStampUserNick":""},"tMass":{"iGoldHostLevel":-1,"iSuperPupleLevel":0,"iVipLevel":0,"iUserLevel":0,"iIsVipRed":0,"iAtSomebody":0,"sAtSomebodyNick":"","ibarrageColor":0,"sDevSourceType":"adr"},"mReserver":{"kproto":{},"vproto":{},"value":{}},"iChatCache":0,"iRoomAuditLevel":4}
+      //             * @type {{type: number, nick: *, msg: *}}
+      //             */
+      //            var n = {
+      //                type: 0,
+      //                nick: o.tSender.sSenderNick,
+      //                msg: o.sMsg
+      //            };
+      //            var lSenderUid = o.tSender.lSenderUid;
+      //            var lYYid = o.tSender.lYYid;
+      //            var lUid = o.tUserId.lUid;
+      //            var lTid = o.lTid;
+      //            var lSid = o.lSid;
+      //            var tr = "<tr><td>" +
+      //                    "</td><td>0</td><td>" + o.tSender.sSenderNick +
+      //                    "</td><td>" + o.sMsg +
+      //                    "</td><td>" + lSenderUid +
+      //                    "</td><td>" + lYYid +
+      //                    "</td><td>" + lTid +
+      //                    "</td><td>" + lUid +
+      //                    "</td><td>" + lSid +
+      //                    "</td>></tr>";
+      //            $("#table1").append(tr);
+      //            window.scrollTo(0, document.body.scrollHeight);
+      var json = {
+      uid: o.tUserId.lUid,
+      nickname: o.tSender.sSenderNick,
+      msg: o.sMsg,
+      type: 1
       };
-      var lSenderUid = o.tSender.lSenderUid;
-      var lYYid = o.tSender.lYYid;
-      var lUid = o.tUserId.lUid;
-      var lTid = o.lTid;
-      var lSid = o.lSid;
-      var tr = "<tr><td>" +
-      "</td><td>0</td><td>" + o.tSender.sSenderNick +
-      "</td><td>" + o.sMsg +
-      "</td><td>" + lSenderUid +
-      "</td><td>" + lYYid +
-      "</td><td>" + lTid +
-      "</td><td>" + lUid +
-      "</td><td>" + lSid +
-      "</td>></tr>";
-      $("#table1").append(tr);
-      window.scrollTo(0, document.body.scrollHeight);
-      var json={};
-      json.uid=lUid;
-      json.nickname=o.tSender.sSenderNick;
-      json.msg=o.sMsg;
-      json.type=1;
+      //            json.uid=o.tUserId.lUid;
+      //            json.nickname=o.tSender.sSenderNick;
+      //            json.msg=o.sMsg;
+      //            json.type=1;
       Enqueue(json);
       });
       i.addListener("6501", function (o) {
       console.log("6501", o);
-      var n = o.iItemType.toString();
-      var json={};
-      json.uid=o.lSenderUid;
-      json.username=o.sSenderNick;
-      json.type=2;
+      //            var n = o.iItemType.toString();
+      var json = {
+      uid: o.lSenderUid,
+      nickname: o.sSenderNick,
+      type: 2
+      };
+      //            json.uid=o.lSenderUid;
+      //            json.username=o.sSenderNick;
+      //            json.type=2;
       Enqueue(json);
       });
       i.addListener("6502", function (o) {
@@ -136,7 +145,7 @@ html(lang='en')
       var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://localhost:3000/huyadm",
+      "url": "http://localhost:3001/huyadm",
       "method": "POST",
       "headers": {
       "content-type": "application/json",
