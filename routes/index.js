@@ -9,7 +9,8 @@ router.get('/hy', function(req, res, next) {
   var topsid = req.query.topsid;
   var subsid = req.query.subsid;
   var yyuid = req.query.yyuid;
-  res.render('hy', {topsid: topsid, subsid: subsid, yyuid: yyuid, ISDEBUG: false});
+  var roomid = req.query.roomid;
+  res.render('hy', {topsid: topsid, subsid: subsid, yyuid: yyuid, ISDEBUG: false,roomid:roomid});
 });
 router.post("/huyadm",function (req, res, next) {
   console.log(JSON.stringify(req.body));
