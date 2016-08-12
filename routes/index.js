@@ -6,7 +6,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 router.get('/hy', function(req, res, next) {
-  res.render('hy', { title: 'Express' });
+  var topsid = req.query.topsid;
+  var subsid = req.query.subsid;
+  var yyuid = req.query.yyuid;
+  res.render('hy', {topsid: topsid, subsid: subsid, yyuid: yyuid, ISDEBUG: false});
 });
 
 module.exports = router;

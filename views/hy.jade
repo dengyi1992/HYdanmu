@@ -8,10 +8,10 @@ html(lang='en')
     title Title
   body
     #testdiv
+    script(src='javascripts/jquery-1.11.3.js')
+    script(src='http://shangjing.huya.com/pkg/taf_51216ff.js')
     script.
-      //    var testdiv = document.getElementById("testdiv");
-      G = {topsid: "92094861", subsid: "2335797845", yyuid: "294636272", ISDEBUG: false};
-      //    G={topsid: "21908807", subsid: "2337243982", yyuid: "7017534", ISDEBUG: false};
+      G={topsid: #{topsid}, subsid: #{subsid}, yyuid: #{yyuid}, ISDEBUG: false};
       function broadcast() {
       function n() {
       var o = new HUYA.LiveLaunchReq;
@@ -97,33 +97,46 @@ html(lang='en')
       "</td><td>" + lSid +
       "</td>></tr>";
       $("#table1").append(tr);
-      window.scrollTo(0, document.body.scrollHeight)
-      //            testdiv.innerHTML="<p>" +0+
-      //                    " <em>" +o.tSender.sSenderNick+
-      //                    "</em> " +o.sMsg+
-      //                    "</p>";
-      c.tanmu.receive(n)
+      window.scrollTo(0, document.body.scrollHeight);
+      Enqueue(o);
       });
       i.addListener("6501", function (o) {
       console.log("6501", o);
-      var n = o.iItemType.toString()
-      , t = {
-      type: 1,
-      nick: o.sSenderNick,
-      propName: c.tanmu.propsInfo[n].propName,
-      icon: c.tanmu.propsInfo[n].propIcon,
-      count: o.iItemCount
-      };
-      c.tanmu.receive(t)
+      var n = o.iItemType.toString();
+      Enqueue(o);
       });
       i.addListener("6502", function (o) {
       console.log("6502", o)
       });
       }
-    // <script src="javascripts/auto_combine_ef109_424feab(1).js"></script>
-    // <input type="button" value="开始">
-    script(src='javascripts/jquery-1.11.3.js')
-    script(src='http://shangjing.huya.com/pkg/taf_51216ff.js')
+      var data = [];
+      function Enqueue(o) {
+      data.push(o);
+      if (data.length > 10) {
+      var up = {
+      "roomid": G.subsid, data: data
+      };
+      //            console.log(JSON.stringify(up));
+      data = [];
+      }
+      }
+      function Upload(data) {
+      var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://120.27.94.166:2999/dmhuya",
+      "method": "POST",
+      "headers": {
+      "content-type": "application/json",
+      "cache-control": "no-cache",
+      "postman-token": "34cad82e-418c-846c-7bae-b0976a1db768"
+      },
+      "data": data
+      };
+      $.ajax(settings).done(function (response) {
+      console.log(response);
+      });
+      }
     script.
       broadcast();
     table#table1
