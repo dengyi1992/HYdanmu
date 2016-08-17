@@ -14,7 +14,7 @@ router.get('/hy', function(req, res, next) {
   res.render('hy', {topsid: topsid, subsid: subsid, yyuid: yyuid, ISDEBUG: false,roomid:roomid});
 });
 router.post("/huyadm",function (req, res, next) {
-  console.log(JSON.stringify(req.body));
+  // console.log(JSON.stringify(req.body));
   var options = { method: 'POST',
     url: 'http://120.27.94.166:2999/dmHuya',
     headers:
