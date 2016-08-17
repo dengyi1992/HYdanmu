@@ -16,7 +16,7 @@ router.get('/hy', function(req, res, next) {
 router.post("/huyadm",function (req, res, next) {
   console.log(JSON.stringify(req.body));
   var options = { method: 'POST',
-    url: 'http://192.168.199.233:2999/dmHuya',
+    url: 'http://120.27.94.166:2999/dmHuya',
     headers:
     {
       'cache-control': 'no-cache',
